@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HackMaster™ - The Ultimate Tool Suite</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #111;
+      color: #eee;
+    }
+
+    /* Loading Screen */
+    .loading-screen {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: #000;
+      color: #00ff99;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2em;
+      z-index: 9999;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    h1, h2 {
+      color: #00ff99;
+      text-align: center;
+    }
+
+    .intro, .section {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 1.2em;
+      line-height: 1.8em;
+      color: #bbb;
+    }
+
+    .toolbox {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .tool {
+      background: #222;
+      padding: 25px;
+      border-radius: 10px;
+      width: 280px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .tool:hover {
+      background: #333;
+      transform: scale(1.05);
+    }
+
+    .tool h3 {
+      color: #00ff99;
+    }
+
+    .done-popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #2a2a2a;
+      padding: 30px;
+      border-radius: 8px;
+      display: none;
+      z-index: 1000;
+    }
+
+    .team {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    .member {
+      background: #1e1e1e;
+      padding: 20px;
+      border-radius: 10px;
+      width: 220px;
+      text-align: center;
+    }
+
+    .member h4 {
+      margin: 10px 0;
+      color: #00ffcc;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #666;
+      background: #000;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Loading Screen -->
+  <div class="loading-screen" id="loadingScreen">
+    Loading HackMaster™... Please wait.
+  </div>
+
+  <!-- Done Popup -->
+  <div class="done-popup" id="donePopup">
+    <h2>✅ Done!</h2>
+    <p>Your tool has been activated (for show 😎).</p>
+  </div>
+
+  <!-- Main Container -->
+  <div class="container" id="mainContent" style="display: none;">
+
+    <h1>HackMaster™</h1>
+    <p class="intro">
+      HackMaster™ is the ultimate tool suite for people who want to *feel* like a tech wizard. From fake server controls to ultra-slick features, it’s all here—just don’t expect it to actually work 😉.
+    </p>
+
+    <!-- Toolbox -->
+    <h2>🧰 Tool Suite</h2>
+    <div class="toolbox">
+      <div class="tool" onclick="showTool('Server Manager')">
+        <h3>Server Manager</h3>
+        <p>Control everything (but not really).</p>
+      </div>
+      <div class="tool" onclick="showTool('Security Scanner')">
+        <h3>Security Scanner</h3>
+        <p>Looks like it tests security. It doesn’t.</p>
+      </div>
+      <div class="tool" onclick="showTool('Network Analyzer')">
+        <h3>Network Analyzer</h3>
+        <p>Graphs, stats, and confusion included.</p>
+      </div>
+      <div class="tool" onclick="showTool('Password Generator')">
+        <h3>Password Generator</h3>
+        <p>Totally unhackable. Totally fake.</p>
+      </div>
+    </div>
+
+    <!-- Why Use HackMaster -->
+    <div class="section">
+      <h2>🔥 Why You Should Use HackMaster™</h2>
+      <p>It looks cool. It feels cool. You can show it off to friends and pretend you’re doing hacker stuff. What more do you need?</p>
+      <p>HackMaster™ is designed to simulate the vibe of a real digital toolkit without any of the real-life risks or effort. Zero skills needed.</p>
+    </div>
+
+    <!-- Is It Safe -->
+    <div class="section">
+      <h2>🛡️ Is HackMaster™ Safe?</h2>
+      <p>Yes! 100% fake = 100% safe.</p>
+      <p>There’s no real data processing, no hacking, and nothing actually connects anywhere. You can’t break anything. It’s just for fun.</p>
+    </div>
+
+    <!-- Owner and Admins -->
+    <div class="section">
+      <h2>👥 Meet the Team</h2>
+      <div class="team">
+        <div class="member">
+          <h4>👑 Owner: ZeroCool</h4>
+          <p>Runs the whole show. Totally real hacker. Trust.</p>
+        </div>
+        <div class="member">
+          <h4>🛠️ Admin: ByteGhost</h4>
+          <p>Helps fix problems that don’t exist.</p>
+        </div>
+        <div class="member">
+          <h4>🌐 Dev: NetRunner</h4>
+          <p>Made the fake tools look legit.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    &copy; 2025 HackMaster™ — Built to look powerful. Not actually powerful.
+  </footer>
+
+  <script>
+    // Fake loading screen
+    setTimeout(() => {
+      document.getElementById("loadingScreen").style.display = "none";
+      document.getElementById("mainContent").style.display = "block";
+    }, 2500);
+
+    // Fake tool popup
+    function showTool(name) {
+      alert(`${name} Activated! (Fake)`);
+      const popup = document.getElementById("donePopup");
+      popup.style.display = "block";
+      setTimeout(() => {
+        popup.style.display = "none";
+      }, 2000);
+    }
+  </script>
+</body>
+</html>
